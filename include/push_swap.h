@@ -6,12 +6,14 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:00:19 by duha              #+#    #+#             */
-/*   Updated: 2025/01/08 17:18:46 by duha             ###   ########.fr       */
+/*   Updated: 2025/01/09 15:15:42 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+# include "../libft/include/libft.h"
 
 typedef struct s_stack
 {
