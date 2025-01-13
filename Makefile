@@ -6,19 +6,19 @@
 #    By: duha <duha@student.hive.fi>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/08 12:00:29 by duha              #+#    #+#              #
-#    Updated: 2025/01/08 14:59:18 by duha             ###   ########.fr        #
+#    Updated: 2025/01/13 14:27:53 by duha             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Iinclude -I$(LIBFT_DIR)
+CFLAGS = -Wall -Wextra -Werror -Iinclude -I$(LIBFT_DIR) -g
 
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 SRC_DIR = src
-SRC = $(SRC_DIR)/push_swap.c
+SRC = $(SRC_DIR)/main.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

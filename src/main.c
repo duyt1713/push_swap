@@ -1,20 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:02:25 by duha              #+#    #+#             */
-/*   Updated: 2025/01/08 16:27:55 by duha             ###   ########.fr       */
+/*   Updated: 2025/01/13 16:21:53 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
+#include <stdlib.h>
 
 int	main(int argc, char **argv)
 {
-	if (argv != 2)
-		return (1);
+	int	i;
+	char **split;
+
+	if (argc == 1)
+		return (1);	//without param
+
+	if (argc == 2)
+	{
+		split = ft_split(argv[1], ' ');
+		if (!split)
+			return (1); //split fail
+		i = 0;
+		while (split[i])
+		{
+			ft_printf("Split succeeded.\n");
+			free(split[i]);
+			i++;
+		}
+		free(split);
+	}
 	return (0);
 }

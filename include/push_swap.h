@@ -6,7 +6,7 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:00:19 by duha              #+#    #+#             */
-/*   Updated: 2025/01/09 15:15:42 by duha             ###   ########.fr       */
+/*   Updated: 2025/01/13 13:29:39 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,5 @@ typedef struct s_stack
 	struct s_stack	*prev;
 	struct s_stack	*next;
 }					t_stack;
-
-typedef struct s_operation
-{
-	const char	*op_name;
-	void		(*func)(t_stack*, t_stack*);
-}				t_operation;
 
 #endif
