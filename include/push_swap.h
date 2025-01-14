@@ -6,7 +6,7 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:00:19 by duha              #+#    #+#             */
-/*   Updated: 2025/01/13 13:29:39 by duha             ###   ########.fr       */
+/*   Updated: 2025/01/14 15:43:26 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 
 # include "../libft/include/libft.h"
 
-typedef struct s_stack
+typedef struct s_node
 {
-	int				num;
-	struct s_stack	*prev;
-	struct s_stack	*next;
-}					t_stack;
+	int				value;
+	int				index;
+	int				cost;
+	struct s_node	*prev;
+	struct s_node	*next;
+}					t_node;
 
 #endif
