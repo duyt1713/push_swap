@@ -6,7 +6,7 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:00:19 by duha              #+#    #+#             */
-/*   Updated: 2025/01/14 15:43:26 by duha             ###   ########.fr       */
+/*   Updated: 2025/01/18 17:36:57 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../libft/include/libft.h"
+# include <stdbool.h>
 
 typedef struct s_node
 {

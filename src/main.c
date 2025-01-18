@@ -6,7 +6,7 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:02:25 by duha              #+#    #+#             */
-/*   Updated: 2025/01/17 18:12:38 by duha             ###   ########.fr       */
+/*   Updated: 2025/01/18 18:20:40 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 t_node	*stack_init(char **args);
 void	handle_error(t_node *stack);
+bool	args_check_numerical(char **argv);
 
 //argc and argv checks, perform split with single argc
 //initialize stack a with stack_init
@@ -34,12 +35,22 @@ int	main(int argc, char **argv)
 
 	if (argc < 2 || (argc == 2 && !argv[1][0]))
 		return (1); // No parameters provided
-	// cat
+
+	// has to be after split
+/* 	if (!args_check_numerical(argv) || !args_check_dup(argv))
+	{
+		ft_printf("Error.\n");
+		return (1);
+	} */
+
 	if (argc == 2)
 	{
 		split = ft_split(argv[1], ' ');
 		if (!split)
 			return (1); // Split failed
+
+		// insert checks here
+
 		stack_a = stack_init(split);
 		split_original = split;
 		while (*split)
@@ -47,6 +58,7 @@ int	main(int argc, char **argv)
 		free(split_original);
 	}
 	else
+		// insert checks here
 		stack_a = stack_init(argv + 1);
 
 	if (!stack_a)
@@ -55,10 +67,51 @@ int	main(int argc, char **argv)
 	// perform push_swap
 	// free stacks a & b
 
-	//free_stack(stack_a);
-
 	return (0);
 }
+
+bool	args_check_numerical(char **argv)
+{
+	char	*arg;
+
+	while (*argv)
+	{
+		arg = *argv;
+		if (*arg == '-' || *arg == '+')
+			arg++;
+		if (!*arg)
+			return (false);
+		while (*arg)
+		{
+			if (!ft_isdigit(*arg))
+				return (false);
+			arg++;
+		}
+		argv++;
+	}
+	return (true);
+}
+
+bool	args_check_dup(int argc, char **argv)
+{
+	char *current;
+	char *compare;
+
+	while (*argv)
+	{
+		current = *argv;
+		compare = current + 1;
+		while (*compare)
+		{
+			if (ft_strncmp(*current, *compare, ft_strlen(*current)) == 0)
+				return (false);
+			compare++;
+		}
+		current++;
+	}
+	return (true);
+}
+
 
 //initialize stack a, handles INT limit check
 t_node	*stack_init(char **args)
@@ -76,8 +129,7 @@ t_node	*stack_init(char **args)
 	{
 		//dup check
 		value = ft_atol(*args++);
-		if (value > INT_MAX || value < INT_MIN
-			|| (value == 0 && !ft_strncmp(*args, "0", ft_strlen(*args)))) //param greater than MAXINT ot not numerica
+		if (value > INT_MAX || value < INT_MIN) //param greater than MAXINT ot not numerica
 			handle_error(stack); //handle free here later as well
 		current_node = ft_calloc(1, sizeof(t_node));
 		if (!current_node)
