@@ -6,7 +6,7 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:02:25 by duha              #+#    #+#             */
-/*   Updated: 2025/01/18 22:04:27 by duha             ###   ########.fr       */
+/*   Updated: 2025/01/18 22:15:21 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ t_node	*stack_init(char **args)
 		if (!current_node)
 			exit(EXIT_FAILURE);
 			//handle_error(a, NULL);
-		current_node->value = value;
+		current_node->value = (int)value;
 		current_node->index = ++index;
 		if (!stack)
 			stack = current_node;
