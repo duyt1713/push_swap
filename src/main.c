@@ -6,7 +6,7 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:02:25 by duha              #+#    #+#             */
-/*   Updated: 2025/01/18 18:20:40 by duha             ###   ########.fr       */
+/*   Updated: 2025/01/18 22:04:27 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 t_node	*stack_init(char **args);
 void	handle_error(t_node *stack);
 bool	args_check_numerical(char **argv);
+bool	args_check_dup(char **argv);
 
 //argc and argv checks, perform split with single argc
 //initialize stack a with stack_init
@@ -37,11 +38,11 @@ int	main(int argc, char **argv)
 		return (1); // No parameters provided
 
 	// has to be after split
-/* 	if (!args_check_numerical(argv) || !args_check_dup(argv))
+	if (!args_check_numerical(argv) || !args_check_dup(argv))
 	{
 		ft_printf("Error.\n");
 		return (1);
-	} */
+	}
 
 	if (argc == 2)
 	{
@@ -92,10 +93,10 @@ bool	args_check_numerical(char **argv)
 	return (true);
 }
 
-bool	args_check_dup(int argc, char **argv)
+bool	args_check_dup(char **argv)
 {
-	char *current;
-	char *compare;
+	char	*current;
+	char	*compare;
 
 	while (*argv)
 	{
@@ -103,7 +104,7 @@ bool	args_check_dup(int argc, char **argv)
 		compare = current + 1;
 		while (*compare)
 		{
-			if (ft_strncmp(*current, *compare, ft_strlen(*current)) == 0)
+			if (ft_strncmp(current, compare, ft_strlen(current)) == 0)
 				return (false);
 			compare++;
 		}
