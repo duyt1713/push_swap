@@ -6,7 +6,7 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:02:25 by duha              #+#    #+#             */
-/*   Updated: 2025/01/18 22:15:21 by duha             ###   ########.fr       */
+/*   Updated: 2025/01/18 22:24:15 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,6 @@ bool	args_check_dup(char **argv)
 	}
 	return (true);
 }
-
 
 //initialize stack a, handles INT limit check
 t_node	*stack_init(char **args)
