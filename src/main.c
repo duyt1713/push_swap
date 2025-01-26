@@ -6,7 +6,7 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:02:25 by duha              #+#    #+#             */
-/*   Updated: 2025/01/26 06:43:00 by duha             ###   ########.fr       */
+/*   Updated: 2025/01/26 16:07:34 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	split_argv = NULL;
 
+//remake args_check_init
 	if (argc < 2 || (argc == 2 && !argv[1][0]))
 		return (1); // No parameters provided
 
@@ -43,7 +44,7 @@ int	main(int argc, char **argv)
 		argv++;
 	if (!args_check_numerical(argv) || !args_check_dup(argv))
 	{
-		ft_printf("Error.\n");
+		write(2, "Error\n", 6);
 		if (split_argv)
 			free_split(split_argv);
 		return (1);
@@ -69,7 +70,7 @@ void	free_split(char **split)
 		free(*temp++);
 	free(split);
 }
-
+//check this later
 void	handle_error(t_node **stack)
 {
 	t_node	*current;
@@ -88,6 +89,6 @@ void	handle_error(t_node **stack)
 		*stack = NULL;
 	}
 	free(stack);
-	ft_printf("Error.\n");
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
