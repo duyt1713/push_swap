@@ -6,7 +6,7 @@
 #    By: duha <duha@student.hive.fi>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/08 12:00:29 by duha              #+#    #+#              #
-#    Updated: 2025/01/13 14:27:53 by duha             ###   ########.fr        #
+#    Updated: 2025/01/21 02:43:06 by duha             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,11 @@ CFLAGS = -Wall -Wextra -Werror -Iinclude -I$(LIBFT_DIR) -g
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SRC_DIR = src
-SRC = $(SRC_DIR)/main.c
-OBJ = $(SRC:.c=.o)
+SRC_DIR = 	src
+SRC = 	$(SRC_DIR)/main.c \
+		$(SRC_DIR)/stack_init.c\
+		$(SRC_DIR)/args_checks.c
+OBJ = 	$(SRC:.c=.o)
 
 all: $(NAME)
 
